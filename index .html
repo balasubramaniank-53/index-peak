@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index Peak | Technical SEO &amp; Growth Consultancy</title>
+<meta name="description" content="Index Peak is a technical SEO and growth engineering consultancy helping businesses turn search visibility into revenue." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary: #2563eb;
+    --primary-strong: #004ac6;
+    --primary-soft: #e9edff;
+    --primary-border: rgba(0, 74, 198, 0.2);
+    --ink: #141b2b;
+    --body: #434655;
+    --muted: #737686;
+    --line: rgba(195, 198, 215, 0.3);
+    --line-strong: rgba(195, 198, 215, 0.5);
+    --surface: #f9f9ff;
+    --surface-2: #f1f3ff;
+    --teal: #006b5f;
+    --teal-soft: rgba(109, 245, 225, 0.2);
+    --dark: #0b1220;
+    --dark-line: #1f2937;
+    --dark-muted: #9ca3af;
+    --dark-body: #c3c6d7;
+    --dark-ink: #edf0ff;
+    --error: #b42318;
+    --shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --font-head: "Plus Jakarta Sans", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--body);
+    background: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  p { margin: 0; }
+  h1, h2, h3, h4 { margin: 0; font-family: var(--font-head); color: var(--ink); }
+  ul { margin: 0; padding: 0; list-style: none; }
+  button, input { font: inherit; }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.6px;
+    text-transform: uppercase; color: var(--primary-strong);
+  }
+  .section-title {
+    font-size: 48px; font-weight: 700; letter-spacing: -0.96px; line-height: 58px;
+  }
+  .section-lede { font-size: 18px; line-height: 28px; color: var(--body); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.14px; border: 1px solid transparent; cursor: pointer;
+    transition: background-color .2s, border-color .2s, box-shadow .2s, color .2s;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--primary); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-primary:hover { background: var(--primary-strong); }
+  .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line-strong); }
+  .btn-secondary:hover { border-color: var(--primary); color: var(--primary-strong); }
+  .btn-soft { background: var(--surface-2); color: var(--ink); border-color: rgba(195, 198, 215, 0.4); }
+  .btn-soft:hover { background: var(--primary-soft); }
+  .link-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.14px; color: var(--primary-strong);
+  }
+  .link-cta:hover { text-decoration: underline; }
+  .link-cta svg { width: 11px; height: 11px; }
+
+  .icon-box {
+    width: 40px; height: 40px; border-radius: 8px; background: var(--primary-soft);
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    color: var(--primary);
+  }
+  .icon-box svg { width: 20px; height: 20px; }
+
+  /* ---------- Top navigation ---------- */
+  .topnav {
+    position: fixed; inset: 0 0 auto 0; z-index: 50; height: 81px;
+    background: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  .topnav .container {
+    height: 80px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 40px; height: 40px; border-radius: 8px; background: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -2px rgba(37, 99, 235, 0.2);
+    color: #fff;
+  }
+  .brand-mark svg { width: 20px; height: 12px; }
+  .brand-name { font-family: var(--font-head); font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: var(--ink); line-height: 28px; }
+  .brand-sub { font-size: 12px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); line-height: 16px; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { font-size: 14px; font-weight: 500; letter-spacing: 0.14px; color: var(--body); }
+  .nav-links a:hover, .nav-links a.active { color: var(--primary-strong); font-weight: 600; }
+  .nav-cta { padding: 10px 20px; font-size: 14px; }
+  .menu-toggle {
+    display: none; background: none; border: 1px solid var(--line-strong); border-radius: 8px;
+    width: 40px; height: 40px; cursor: pointer; color: var(--ink);
+    align-items: center; justify-content: center;
+  }
+
+  main { padding-top: 81px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 80px 0 113px;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 32px; align-items: center;
+  }
+  .hero-copy { grid-column: 1 / span 7; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--primary-soft); border: 1px solid var(--primary-border);
+    border-radius: 9999px; padding: 7px 15px; margin-bottom: 24px;
+  }
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
+  .badge-text { font-size: 12px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: var(--primary-strong); line-height: 16px; }
+  .hero h1 {
+    font-size: 60px; font-weight: 800; letter-spacing: -1.5px; line-height: 72px;
+    color: var(--primary); margin-bottom: 24px; max-width: 700px;
+  }
+  .hero h1 span.ink { color: var(--ink); }
+  .hero h1 span.ink-2 { color: var(--ink); display: block; }
+  .hero h1 span.blue-2 { display: block; }
+  .hero-copy p.lede {
+    font-size: 18px; line-height: 29.25px; color: var(--body);
+    max-width: 672px; margin-bottom: 32px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+  .trust-points {
+    display: flex; gap: 16px; justify-content: space-between;
+    border-top: 1px solid rgba(195, 198, 215, 0.4); padding-top: 25px;
+  }
+  .trust-point { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--ink); }
+  .trust-point svg { width: 17px; height: 17px; color: var(--teal); flex: none; }
+
+  .dash-wrap { grid-column: 8 / span 5; position: relative; }
+  .dash-glow {
+    position: absolute; inset: -16px; border-radius: 24px;
+    background: rgba(37, 99, 235, 0.05); filter: blur(40px); z-index: 0;
+  }
+  .dash {
+    position: relative; z-index: 1; background: #fff;
+    border: 1px solid rgba(195, 198, 215, 0.4); border-radius: 16px;
+    padding: 25px; box-shadow: var(--shadow-lg);
+  }
+  .dash-metrics {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    padding-bottom: 25px; border-bottom: 1px solid var(--line);
+  }
+  .metric {
+    background: var(--surface-2); border: 1px solid rgba(195, 198, 215, 0.2);
+    border-radius: 12px; padding: 17px 17px 21px;
+  }
+  .metric-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .metric-label { font-size: 12px; font-weight: 500; letter-spacing: 0.24px; color: var(--body); line-height: 16px; }
+  .metric-pill {
+    background: var(--teal-soft); color: var(--teal); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.24px; padding: 2px 8px; border-radius: 9999px; line-height: 16px; white-space: nowrap;
+  }
+  .metric-value { font-family: var(--font-head); font-size: 24px; font-weight: 800; letter-spacing: -0.6px; color: var(--ink); line-height: 32px; margin-top: 4px; }
+  .metric-value small { font-size: 16px; font-weight: 600; color: var(--muted); }
+  .metric-foot { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .metric-foot.teal { color: var(--teal); font-weight: 500; }
+  .metric-icon { width: 16px; height: 16px; color: var(--primary); }
+
+  .chart-block { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .chart-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .chart-title { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink); letter-spacing: 0.14px; }
+  .chart-title svg { width: 15px; height: 16px; color: var(--primary); }
+  .chart-period { font-size: 12px; font-weight: 600; letter-spacing: 0.24px; color: var(--muted); }
+  .chart-box {
+    position: relative; height: 144px; border-radius: 12px; overflow: hidden;
+    background: rgba(241, 243, 255, 0.5); border: 1px solid rgba(195, 198, 215, 0.2);
+    padding: 13px;
+  }
+  .chart-box svg { width: 100%; height: 100%; }
+  .chart-tip {
+    position: absolute; right: 56px; top: 8px; background: var(--ink); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; line-height: 16.5px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .rank-block { padding: 20px 0 16px; border-bottom: 1px solid var(--line); }
+  .rank-label { font-size: 12px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .rank-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(241, 243, 255, 0.7); border: 1px solid rgba(195, 198, 215, 0.2);
+    border-radius: 8px; padding: 11px; margin-bottom: 10px;
+  }
+  .rank-row:last-child { margin-bottom: 0; }
+  .rank-left { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--ink); }
+  .rank-num {
+    width: 24px; height: 24px; border-radius: 4px; background: var(--primary);
+    color: #fff; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;
+  }
+  .rank-delta { font-size: 12px; font-weight: 700; letter-spacing: 0.24px; color: var(--teal); display: inline-flex; align-items: center; gap: 2px; }
+  .rank-delta svg { width: 9px; height: 9px; }
+
+  .dash-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 17px; }
+  .dash-foot .label { font-size: 14px; font-weight: 500; color: var(--body); }
+  .dash-foot .pill {
+    background: var(--primary-soft); color: var(--primary); font-weight: 700;
+    font-size: 14px; letter-spacing: 0.14px; padding: 4px 12px; border-radius: 6px;
+  }
+
+  /* ---------- About ---------- */
+  .about { background: #fff; border-bottom: 1px solid var(--line); padding: 112px 0 113px; }
+  .about-grid {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 64px; align-items: center;
+  }
+  .about-copy { grid-column: 1 / span 7; display: flex; flex-direction: column; gap: 24px; }
+  .about-copy h2 { font-size: 48px; font-weight: 700; letter-spacing: -0.96px; line-height: 58px; }
+  .about-copy .prose { display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 26px; color: var(--body); }
+  .values { display: flex; flex-direction: column; gap: 16px; padding-top: 16px; }
+  .value {
+    display: flex; gap: 16px; align-items: flex-start; padding: 17px;
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .value h4 { font-size: 20px; font-weight: 600; letter-spacing: -0.1px; line-height: 28px; margin-bottom: 4px; }
+  .value p { font-size: 14px; line-height: 20px; color: var(--body); }
+  .about-copy .btn { align-self: flex-start; margin-top: 16px; }
+
+  .pipeline-wrap { grid-column: 8 / span 5; }
+  .pipeline {
+    background: var(--surface-2); border: 1px solid rgba(195, 198, 215, 0.4);
+    border-radius: 16px; padding: 33px; display: flex; flex-direction: column; gap: 24px;
+  }
+  .pipeline-head {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--line); padding-bottom: 17px;
+  }
+  .pipeline-head .t { font-size: 14px; font-weight: 700; letter-spacing: 0.14px; color: var(--ink); }
+  .pipeline-head .tag {
+    background: var(--teal-soft); color: var(--teal); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.24px; padding: 2px 10px; border-radius: 9999px;
+  }
+  .steps { position: relative; display: flex; flex-direction: column; gap: 24px; }
+  .steps::before {
+    content: ""; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px;
+    background: rgba(195, 198, 215, 0.5);
+  }
+  .step {
+    position: relative; background: #fff; border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm); border-radius: 12px; padding: 17px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .step-num {
+    width: 40px; height: 40px; border-radius: 9999px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; background: var(--primary); color: #fff; position: relative; z-index: 1;
+  }
+  .step-num.soft { background: #e1e8fd; color: var(--primary-strong); border: 1px solid var(--primary-border); }
+  .step-num.teal { background: var(--teal); }
+  .step-body { flex: 1; min-width: 0; }
+  .step-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .step-head h4 { font-size: 20px; font-weight: 600; letter-spacing: -0.1px; line-height: 28px; }
+  .step-phase { font-size: 12px; font-weight: 600; letter-spacing: 0.24px; color: var(--muted); white-space: nowrap; }
+  .step-phase.teal { color: var(--teal); }
+  .step-body p { font-size: 14px; line-height: 20px; color: var(--body); }
+  .pipeline-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; font-size: 12px; }
+  .pipeline-foot .l { color: var(--body); }
+  .pipeline-foot .r { color: var(--primary); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+  .pipeline-foot .r svg { width: 10px; height: 10px; }
+
+  /* ---------- Services ---------- */
+  .services { background: rgba(241, 243, 255, 0.6); border-bottom: 1px solid var(--line); padding: 112px 0 113px; }
+  .section-head { max-width: 768px; display: flex; flex-direction: column; gap: 12px; }
+  .section-head .section-title { margin-top: 4px; }
+  .section-head .section-lede { margin-top: 4px; }
+  .services .section-head { margin-bottom: 64px; }
+  .bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 33px;
+    box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .card .card-icon {
+    width: 48px; height: 48px; border-radius: 8px; background: var(--primary-soft);
+    display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 13px;
+  }
+  .card .card-icon svg { width: 20px; height: 20px; }
+  .card h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.24px; line-height: 32px; margin-bottom: 13px; }
+  .card p.desc { font-size: 14px; line-height: 22.75px; color: var(--body); margin-bottom: 13px; }
+  .card ul { border-top: 1px solid rgba(195, 198, 215, 0.2); padding-top: 17px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .card li { display: flex; align-items: center; gap: 10px; font-size: 14px; line-height: 20px; color: var(--ink); }
+  .card li svg { width: 15px; height: 15px; color: var(--teal); flex: none; }
+  .card .link-cta { margin-top: auto; }
+  .card-inner { display: flex; flex-direction: column; }
+
+  .service-cta {
+    margin-top: 64px; background: var(--primary-soft);
+    border: 1px solid rgba(195, 198, 215, 0.4); border-radius: 16px;
+    padding: 41px; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  }
+  .service-cta h4 { font-size: 24px; font-weight: 600; letter-spacing: -0.24px; line-height: 32px; margin-bottom: 8px; }
+  .service-cta p { font-size: 16px; line-height: 24px; color: var(--body); max-width: 672px; }
+
+  /* ---------- Industries ---------- */
+  .industries { background: #fff; border-bottom: 1px solid var(--line); padding: 112px 0 113px; }
+  .industries .section-head { margin-bottom: 48px; }
+  .industry-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-top: 16px; }
+  .industry {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 25px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 8px;
+  }
+  .industry .icon-box { width: 40px; height: 40px; margin-bottom: 8px; }
+  .industry h4 { font-size: 20px; font-weight: 700; letter-spacing: -0.1px; line-height: 28px; padding-top: 8px; }
+  .industry p { font-size: 14px; line-height: 20px; color: var(--body); }
+  .industries-cta { display: flex; justify-content: center; margin-top: 48px; }
+
+  /* ---------- Packages ---------- */
+  .packages { background: rgba(241, 243, 255, 0.6); border-bottom: 1px solid var(--line); padding: 112px 0 113px; }
+  .packages .section-head { margin-bottom: 40px; gap: 12px; }
+  .pricing { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; padding-top: 40px; }
+  .plan {
+    background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    padding: 33px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 16px;
+    position: relative;
+  }
+  .plan.featured { border: 2px solid var(--primary); padding: 34px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); margin-top: -8px; }
+  .plan-tier { font-size: 14px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: var(--muted); }
+  .plan.featured .plan-tier { color: var(--primary); }
+  .plan-desc { font-size: 14px; line-height: 20px; color: var(--body); padding-bottom: 8px; }
+  .plan-price {
+    display: flex; align-items: baseline; gap: 4px; padding-bottom: 25px;
+    border-bottom: 1px solid rgba(195, 198, 215, 0.2);
+  }
+  .plan-price .amount { font-family: var(--font-head); font-size: 36px; font-weight: 800; letter-spacing: -0.9px; color: var(--ink); line-height: 44px; }
+  .plan-price .unit { font-size: 14px; color: var(--muted); }
+  .plan-price .unit.custom { font-size: 14px; }
+  .plan-list { display: flex; flex-direction: column; gap: 12px; padding-top: 8px; flex: 1; margin-bottom: 16px; }
+  .plan-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 20px; color: var(--ink); }
+  .plan-list svg { width: 11px; height: 10px; margin-top: 5px; flex: none; color: var(--teal); }
+  .plan.featured .plan-list svg { color: var(--primary); }
+  .plan .btn { width: 100%; }
+  .plan .btn-soft { border-radius: 8px; }
+  .popular {
+    position: absolute; top: -14px; right: 24px; background: var(--primary); color: #fff;
+    border-radius: 9999px; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+  }
+  .pricing-note { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.24px; color: var(--muted); margin: 0 0 24px; padding-top: 0; }
+  .custom-plan {
+    background: #fff; border: 1px solid rgba(195, 198, 215, 0.4); border-radius: 16px;
+    padding: 33px; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .custom-plan h4 { font-size: 20px; font-weight: 700; letter-spacing: -0.1px; line-height: 28px; margin-bottom: 8px; }
+  .custom-plan p { font-size: 14px; line-height: 20px; color: var(--body); max-width: 672px; }
+
+  /* ---------- FAQ ---------- */
+  .faqs { background: #fff; border-bottom: 1px solid var(--line); padding: 112px 24px 113px; }
+  .faq-wrap { max-width: 896px; margin: 0 auto; }
+  .faq-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; margin-bottom: 64px; }
+  .faq-head .section-title { font-size: 48px; }
+  .faq-head .section-lede { max-width: 672px; padding-top: 4px; }
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  .faq-item {
+    background: var(--surface); border: 1px solid rgba(195, 198, 215, 0.4);
+    border-radius: 12px; overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; background: none; border: 0; cursor: pointer; text-align: left;
+    padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); line-height: 28px;
+  }
+  .faq-q .plus { width: 12px; height: 12px; color: var(--muted); flex: none; transition: transform .25s ease; }
+  .faq-item.open .faq-q .plus { transform: rotate(45deg); }
+  .faq-a { display: none; padding: 0 24px 20px; font-size: 15px; line-height: 24px; color: var(--body); }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ---------- Final CTA + form ---------- */
+  .final-cta {
+    background: var(--dark); padding: 112px 128px; position: relative; overflow: hidden;
+    text-align: center; color: #fff;
+  }
+  .final-cta::before {
+    content: ""; position: absolute; inset: 0; opacity: 0.1; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .final-inner { position: relative; max-width: 1024px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 0 24px; }
+  .final-cta h2 {
+    color: #fff; font-size: 60px; font-weight: 800; letter-spacing: -1.5px; line-height: 72px;
+  }
+  .final-cta p.lede { font-size: 18px; line-height: 29.25px; color: var(--dark-body); max-width: 672px; }
+  .final-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; padding-top: 8px; }
+  .btn-ghost-dark {
+    background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 17px 33px;
+  }
+  .btn-ghost-dark:hover { border-color: rgba(255,255,255,0.5); }
+
+  .consult-form {
+    width: 100%; max-width: 672px; margin-top: 16px;
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px; padding: 28px; text-align: left;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .consult-form .field { display: flex; flex-direction: column; gap: 6px; }
+  .consult-form .field.full { grid-column: 1 / -1; }
+  .consult-form label { font-size: 12px; font-weight: 600; letter-spacing: 0.24px; color: var(--dark-body); text-transform: uppercase; }
+  .consult-form input {
+    background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 14px; outline: none;
+  }
+  .consult-form input::placeholder { color: rgba(195, 198, 215, 0.6); }
+  .consult-form input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25); }
+  .consult-form .btn { grid-column: 1 / -1; padding: 15px 28px; }
+  .consult-form .btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+  .form-status { grid-column: 1 / -1; font-size: 14px; min-height: 20px; color: var(--dark-body); text-align: center; }
+  .form-status.ok { color: #6df5e1; }
+  .form-status.err { color: #fca5a5; }
+
+  /* ---------- Footer ---------- */
+  .site-footer { background: var(--dark); border-top: 1px solid var(--dark-line); color: var(--dark-body); }
+  .footer-top {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 48px;
+    padding: 64px 0 65px; border-bottom: 1px solid var(--dark-line);
+  }
+  .footer-col-brand { grid-column: 1 / span 4; display: flex; flex-direction: column; gap: 15px; }
+  .footer-brand { display: flex; align-items: center; gap: 12px; }
+  .footer-brand .brand-mark { width: 36px; height: 36px; box-shadow: none; }
+  .footer-brand .brand-mark svg { width: 17px; height: 10px; }
+  .footer-brand span { font-family: var(--font-head); font-size: 24px; font-weight: 800; letter-spacing: -0.6px; color: var(--dark-ink); }
+  .footer-tag { font-family: var(--font-head); font-size: 20px; font-weight: 600; color: #fff; letter-spacing: -0.1px; line-height: 28px; }
+  .footer-desc { font-size: 14px; line-height: 22.75px; color: var(--dark-body); max-width: 384px; }
+  .socials { display: flex; gap: 12px; padding-top: 9px; }
+  .socials a {
+    width: 36px; height: 36px; border-radius: 8px; background: #293040;
+    display: flex; align-items: center; justify-content: center; color: #fff;
+  }
+  .socials a:hover { background: var(--primary); }
+  .socials svg { width: 15px; height: 15px; }
+
+  .footer-col { display: flex; flex-direction: column; gap: 12px; }
+  .footer-col-quick { grid-column: 5 / span 2; }
+  .footer-col-services { grid-column: 7 / span 3; }
+  .footer-col-contact { grid-column: 10 / span 3; }
+  .footer-col h5 { font-size: 14px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: #fff; }
+  .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul a { font-size: 14px; line-height: 20px; color: var(--dark-muted); }
+  .footer-col ul a:hover { color: #fff; }
+  .footer-col p { font-size: 14px; line-height: 20px; color: var(--dark-body); }
+  .contact-line { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--dark-ink); padding-top: 4px; }
+  .contact-line svg { width: 14px; height: 14px; color: var(--primary); flex: none; }
+  .contact-line:first-of-type { padding-top: 4px; }
+  .footer-col .btn { align-self: flex-start; margin-top: 8px; padding: 8px 16px; font-size: 12px; }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    padding: 32px 0 0; font-size: 12px; font-weight: 600; letter-spacing: 0.24px; color: var(--dark-body);
+  }
+  .footer-bottom nav { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-bottom nav a:hover { color: #fff; }
+
+  .footer-wrap { padding: 0 24px 0; max-width: 1280px; margin: 0 auto; }
+  .footer-wrap-inner { padding: 64px 0 0; }
+  .footer-wrap-inner .footer-bottom { padding: 32px 0 40px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .nav-links { gap: 20px; }
+    .hero h1 { font-size: 52px; line-height: 64px; }
+    .final-cta { padding: 96px 48px; }
+  }
+  @media (max-width: 960px) {
+    .nav-links, .nav-cta { display: none; }
+    .menu-toggle { display: inline-flex; }
+    .topnav.open .nav-links, .topnav.open .nav-cta {
+      display: flex; position: absolute; left: 0; right: 0; top: 81px; background: #fff;
+    }
+    .topnav.open .nav-links { flex-direction: column; gap: 0; padding: 16px 24px; top: 81px; border-bottom: 1px solid var(--line); }
+    .topnav.open .nav-links a { padding: 12px 0; }
+    .topnav.open .nav-cta { top: auto; bottom: auto; left: 24px; right: 24px; margin: 0; justify-content: center; }
+    .hero-grid, .about-grid { grid-template-columns: 1fr; }
+    .hero-copy, .dash-wrap, .about-copy, .pipeline-wrap { grid-column: 1 / -1; }
+    .dash-wrap { margin-top: 24px; }
+    .pipeline-wrap { margin-top: 24px; }
+    .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pricing { grid-template-columns: 1fr; }
+    .plan.featured { margin-top: 0; }
+    .section-title, .about-copy h2, .faq-head .section-title { font-size: 40px; line-height: 50px; }
+    .final-cta h2 { font-size: 46px; line-height: 56px; }
+    .footer-col-brand { grid-column: 1 / -1; }
+    .footer-col-quick, .footer-col-services, .footer-col-contact { grid-column: span 4; }
+    .service-cta, .custom-plan { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 640px) {
+    .container, .faqs { padding-left: 16px; padding-right: 16px; }
+    .hero { padding: 48px 0 64px; }
+    .hero h1 { font-size: 40px; line-height: 48px; letter-spacing: -1px; }
+    .hero-copy p.lede, .final-cta p.lede, .section-lede { font-size: 16px; line-height: 26px; }
+    .trust-points { flex-direction: column; gap: 12px; }
+    .dash { padding: 16px; }
+    .dash-metrics { grid-template-columns: 1fr; }
+    .about, .services, .industries, .packages, .faqs { padding: 72px 0; }
+    .bento, .industry-grid { grid-template-columns: 1fr; }
+    .card { padding: 24px; }
+    .section-title, .about-copy h2, .faq-head .section-title { font-size: 32px; line-height: 40px; }
+    .final-cta { padding: 72px 16px; }
+    .final-cta h2 { font-size: 36px; line-height: 44px; letter-spacing: -0.9px; }
+    .consult-form { grid-template-columns: 1fr; padding: 20px; }
+    .footer-col-quick, .footer-col-services, .footer-col-contact { grid-column: 1 / -1; }
+    .footer-top { gap: 32px; }
+    .menu-toggle { display: inline-flex; }
+    .step-head { flex-wrap: wrap; }
+    .faq-q { font-size: 16px; padding: 18px 20px; }
+    .custom-plan, .service-cta { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. TOP NAVIGATION BAR ============ -->
+<header class="topnav" id="topnav">
+  <div class="container">
+    <a class="brand" href="#hero" aria-label="Index Peak home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,11 7,5 11,8 19,1"/><polyline points="13,1 19,1 19,7"/></svg>
+      </span>
+      <span>
+        <span class="brand-name" style="display:block">INDEX PEAK</span>
+        <span class="brand-sub" style="display:block">Technical SEO &amp; Growth</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#packages">Packages</a>
+      <a href="#faqs">FAQs</a>
+    </nav>
+
+    <a class="btn btn-primary nav-cta" href="#consult">Get a Consultation</a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ 2. HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span class="badge-text">SEO &amp; Digital Growth Partner</span>
+          </div>
+
+          <h1>
+            <span>Rank Higher</span><span class="ink"> on Google.</span>
+            <span class="ink-2">Reach More Customers.</span>
+            <span class="blue-2">Grow Your Business.</span>
+          </h1>
+
+          <p class="lede">
+            Your customers are searching for businesses like yours online. Make sure they find you first. We help businesses improve their search visibility, attract relevant website traffic, and generate more enquiries through strategic SEO and data-driven digital marketing campaigns.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#consult">Get a Consultation</a>
+            <a class="btn btn-secondary" href="#services">Explore Our Services</a>
+          </div>
+
+          <div class="trust-points">
+            <div class="trust-point">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+              SEO Built Around Your Goals
+            </div>
+            <div class="trust-point">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+              Data-Driven Decisions
+            </div>
+            <div class="trust-point">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+              Organic &amp; Paid Scaling
+            </div>
+          </div>
+        </div>
+
+        <!-- Live SEO dashboard widget -->
+        <div class="dash-wrap" aria-label="Sample SEO dashboard">
+          <div class="dash-glow"></div>
+          <div class="dash" style="position:relative">
+            <div class="dash-metrics">
+              <div class="metric">
+                <div class="metric-top">
+                  <span class="metric-label">Search<br>Visibility</span>
+                  <span class="metric-pill">+34.2%<br>MoM</span>
+                </div>
+                <div class="metric-value">+148%</div>
+                <div class="metric-foot">Aggregated SERP footprint</div>
+              </div>
+              <div class="metric">
+                <div class="metric-top">
+                  <span class="metric-label">Core Web Vitals</span>
+                  <svg class="metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="metric-value">98<small>/100</small></div>
+                <div class="metric-foot teal">Optimal Mobile Performance</div>
+              </div>
+            </div>
+
+            <div class="chart-block">
+              <div class="chart-head">
+                <span class="chart-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+                  Organic Keyword Velocity
+                </span>
+                <span class="chart-period">Past 6 Months</span>
+              </div>
+              <div class="chart-box">
+                <svg viewBox="0 0 418 118" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <line x1="0" y1="10" x2="418" y2="10" stroke="rgba(195,198,215,0.5)" stroke-dasharray="3 4"/>
+                  <line x1="0" y1="49" x2="418" y2="49" stroke="rgba(195,198,215,0.5)" stroke-dasharray="3 4"/>
+                  <line x1="0" y1="98" x2="418" y2="98" stroke="rgba(195,198,215,0.5)" stroke-dasharray="3 4"/>
+                  <path d="M0 98 C 90 96, 150 74, 225 52 S 330 26, 418 8 L 418 118 L 0 118 Z" fill="url(#chartFill)"/>
+                  <path d="M0 98 C 90 96, 150 74, 225 52 S 330 26, 418 8" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="320" cy="26" r="4" fill="#2563eb"/>
+                </svg>
+                <div class="chart-tip">+68.4k Visits</div>
+              </div>
+            </div>
+
+            <div class="rank-block">
+              <div class="rank-label">Priority SERP Rankings</div>
+              <div class="rank-row">
+                <div class="rank-left"><span class="rank-num">#1</span> b2b saas marketing</div>
+                <span class="rank-delta"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 9V1M1 5l4-4 4 4"/></svg>+4</span>
+              </div>
+              <div class="rank-row">
+                <div class="rank-left"><span class="rank-num">#2</span> local dental clinic seo</div>
+                <span class="rank-delta"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 9V1M1 5l4-4 4 4"/></svg>+8</span>
+              </div>
+              <div class="rank-row">
+                <div class="rank-left"><span class="rank-num">#3</span> cloud consulting services</div>
+                <span class="rank-delta"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 9V1M1 5l4-4 4 4"/></svg>+12</span>
+              </div>
+            </div>
+
+            <div class="dash-foot">
+              <span class="label">Verified Growth Metric:</span>
+              <span class="pill">68,450 Monthly Organic Visits</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">About Index Peak</span>
+          <h2>We Help Businesses Turn Online Visibility Into Opportunity.</h2>
+
+          <div class="prose">
+            <p>A website is an important part of your business, but simply having one isn't enough. Your potential customers need to discover it, understand what you offer, and have a reason to choose you.</p>
+            <p>At Index Peak, we help businesses strengthen their online presence through search engine optimization, paid advertising, and strategic digital marketing.</p>
+            <p>We begin by understanding your business, your audience, and your competition. From there, we identify opportunities and develop a strategy aligned with your goals.</p>
+            <p>Whether you want to improve your Google visibility, attract more relevant visitors, or reach potential customers through advertising, we're here to help you make informed marketing decisions.</p>
+          </div>
+
+          <div class="values">
+            <div class="value">
+              <span class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+              </span>
+              <div>
+                <h4>Understand Before We Strategize</h4>
+                <p>We study your business, audience, and market before recommending the next steps.</p>
+              </div>
+            </div>
+            <div class="value">
+              <span class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+              </span>
+              <div>
+                <h4>Focus on What Matters</h4>
+                <p>We prioritize improvements that support your marketing objectives.</p>
+              </div>
+            </div>
+            <div class="value">
+              <span class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 3 3 5-6"/></svg>
+              </span>
+              <div>
+                <h4>Measure and Improve</h4>
+                <p>We use performance data to evaluate progress and identify opportunities for further improvement.</p>
+              </div>
+            </div>
+          </div>
+
+          <a class="btn btn-primary" href="#consult">
+            Let's Discuss Your Goals
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="pipeline-wrap">
+          <div class="pipeline">
+            <div class="pipeline-head">
+              <span class="t">The Growth Pipeline</span>
+              <span class="tag">Continuous Engine</span>
+            </div>
+
+            <div class="steps">
+              <div class="step">
+                <span class="step-num">01</span>
+                <div class="step-body">
+                  <div class="step-head">
+                    <h4>Research &amp; Discovery</h4>
+                    <span class="step-phase">Phase 1</span>
+                  </div>
+                  <p>Deep-dive technical crawl, competitive gap analysis, and query clustering.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num soft">02</span>
+                <div class="step-body">
+                  <div class="step-head">
+                    <h4>Targeted Strategy</h4>
+                    <span class="step-phase">Phase 2</span>
+                  </div>
+                  <p>Custom roadmap prioritization matching commercial intent and high-converting keywords.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num soft">03</span>
+                <div class="step-body">
+                  <div class="step-head">
+                    <h4>Precision Optimization</h4>
+                    <span class="step-phase">Phase 3</span>
+                  </div>
+                  <p>On-page technical fixes, internal link topology restructuring, and schema expansion.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num teal">04</span>
+                <div class="step-body">
+                  <div class="step-head">
+                    <h4>Scale &amp; Growth</h4>
+                    <span class="step-phase teal">Active Run</span>
+                  </div>
+                  <p>Revenue tracking, attribution analysis, and compounding topical dominance.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pipeline-foot">
+              <span class="l">Iterative Sprints</span>
+              <span class="r">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.5 15a9 9 0 1 1-2.1-9.4L23 10"/></svg>
+                100% Transparent Telemetry
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our Services</span>
+        <h2 class="section-title">Everything You Need to Grow Your Business Online.</h2>
+        <p class="section-lede">From technical search infrastructure to multi-channel customer acquisition, our data-backed methodology drives sustainable compounding visibility.</p>
+      </div>
+
+      <div class="bento" style="margin-top:64px">
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="13" y2="6"/><line x1="3" y1="12" x2="10" y2="12"/><line x1="3" y1="18" x2="8" y2="18"/><circle cx="17" cy="15" r="3"/><line x1="19.2" y1="17.2" x2="21" y2="19"/></svg>
+            </div>
+            <h3>Search Engine Optimization</h3>
+            <p class="desc">Improve search engine positioning for high-intent terms and capture motivated buyers throughout the customer journey.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Keyword Research &amp; Mapping</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>On-Page SEO &amp; Meta Architecture</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Content Optimization &amp; Pruning</li>
+            </ul>
+          </div>
+          <a class="link-cta" href="#services">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><polyline points="7 14 10 17 7 20"/></svg>
+            </div>
+            <h3>Technical SEO</h3>
+            <p class="desc">Eliminate crawl blockers, optimize JavaScript rendering, and construct an authoritative site architecture Google rewards.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Crawl and Indexing Checks</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Technical Website Audits</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Core Web Vitals Review</li>
+            </ul>
+          </div>
+          <a class="link-cta" href="#services">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+            </div>
+            <h3>Google Ads Management</h3>
+            <p class="desc">Accelerate immediate customer acquisition with laser-targeted search campaigns and strict ROAS performance guardrails.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Search Campaign Setup</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Keyword &amp; Negative Keyword Research</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Conversion Tracking &amp; Attributions</li>
+            </ul>
+          </div>
+          <a class="link-cta" href="#services">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Local SEO</h3>
+            <p class="desc">Dominate the Google Map Pack and drive walk-in customers and high-intent local phone enquiries directly to your door.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Business Profile Optimization</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Local Keyword Research</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Location-Based Geo Citations</li>
+            </ul>
+          </div>
+          <a class="link-cta" href="#services">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+            </div>
+            <h3>Social Media Marketing</h3>
+            <p class="desc">Build brand authority and scale top-of-funnel customer interest across LinkedIn, Instagram, and precision digital networks.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Social Media Strategy</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Editorial Content Planning</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Paid Social Advertising Campaigns</li>
+            </ul>
+          </div>
+          <a class="link-cta" href="#services">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="14 3 14 9 20 9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+            </div>
+            <h3>Content Marketing</h3>
+            <p class="desc">Authoritative, research-backed editorial assets that answer user intent, earn high-quality backlinks, and convert visitors into pipeline.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Blog Topic &amp; Cluster Research</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SEO Content Creation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Editorial Semantic Optimization</li>
+            </ul>
+          </div>
+          <a class="link-cta" href="#services">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+      </div>
+
+      <div class="service-cta">
+        <div>
+          <h4>Not Sure Which Service You Need?</h4>
+          <p>Tell us about your business, and we'll help you identify the services that best match your goals.</p>
+        </div>
+        <a class="btn btn-primary" href="#consult">Find the Right Strategy</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. INDUSTRIES ============ -->
+  <section class="industries" id="industries">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Who We Work With</span>
+        <h2 class="section-title">Digital Marketing Built Around Your Industry.</h2>
+        <p class="section-lede">Every sector possesses distinct customer search behaviors, conversion patterns, and regulatory demands. We tailor every initiative accordingly.</p>
+      </div>
+
+      <div class="industry-grid">
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v8a2 2 0 0 0 2 2v10"/><path d="M11 2v8a2 2 0 0 1-2 2"/><path d="M17 2c-1.7 1.5-2 4-2 7 0 1.5.5 3 2 3v10"/></svg></span>
+          <h4>Restaurants and Cafés</h4>
+          <p>High-visibility Local SEO, map discovery, menu indexing, and positive review growth.</p>
+        </div>
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>
+          <h4>Healthcare and Clinics</h4>
+          <p>Strict HIPAA/medical guidelines compliance, patient acquisition, and treatment-specific ranking.</p>
+        </div>
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="7" x2="9" y2="7.01"/><line x1="15" y1="7" x2="15" y2="7.01"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="15" y1="12" x2="15" y2="12.01"/><line x1="10" y1="22" x2="10" y2="18"/><line x1="14" y1="22" x2="14" y2="18"/></svg></span>
+          <h4>Real Estate</h4>
+          <p>Localized property search funnels, neighborhood hub pages, and buyer lead generation.</p>
+        </div>
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+          <h4>Education and Training</h4>
+          <p>Student recruitment, course search query optimization, and regional accreditation visibility.</p>
+        </div>
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+          <h4>E-commerce and Retail</h4>
+          <p>Faceted navigation indexing, product schema, category taxonomy, and shopping ads setup.</p>
+        </div>
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <h4>Fitness and Wellness</h4>
+          <p>Studio membership conversions, class scheduling visibility, and targeted hyper-local ads.</p>
+        </div>
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21L12 3l7 18"/><line x1="9" y1="14" x2="15" y2="14"/></svg></span>
+          <h4>Construction &amp; Design</h4>
+          <p>High-ticket commercial enquiries, visual portfolio showcasing, and contractor search presence.</p>
+        </div>
+        <div class="industry">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
+          <h4>Professional Services</h4>
+          <p>Consulting, legal, and financial firms targeting high-value commercial accounts and partners.</p>
+        </div>
+      </div>
+
+      <div class="industries-cta">
+        <a class="btn btn-secondary" href="#consult">
+          Tell Us About Your Business
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. PACKAGES & PRICING ============ -->
+  <section class="packages" id="packages">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Simple and Transparent Pricing</span>
+        <h2 class="section-title">Choose the Right Plan for Your Business.</h2>
+        <p class="section-lede">Clear deliverables with zero lock-in contracts. Each package is tailored to accelerate organic traffic and business outcomes.</p>
+      </div>
+
+      <div class="pricing" style="margin-top:40px">
+        <!-- Starter -->
+        <div class="plan">
+          <div class="plan-tier">Starter SEO</div>
+          <p class="plan-desc">Small businesses building their online presence and initial organic footprint.</p>
+          <div class="plan-price"><span class="amount">₹29,999</span><span class="unit">/ month</span></div>
+          <ul class="plan-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 15 Priority Keyword Targets</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Foundational Technical Site Audit</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>On-Page Optimization (5 Core Pages)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Business Profile Tuning</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly Performance Reporting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Search Console Health Check</li>
+          </ul>
+          <a class="btn btn-soft" href="#consult">Choose Starter SEO</a>
+        </div>
+
+        <!-- Growth (featured) -->
+        <div class="plan featured">
+          <span class="popular">Popular Choice</span>
+          <div class="plan-tier">Growth SEO</div>
+          <p class="plan-desc">Businesses looking to expand their organic search visibility and competitive dominance.</p>
+          <div class="plan-price"><span class="amount">₹49,999</span><span class="unit">/ month</span></div>
+          <ul class="plan-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 40 Priority Keyword Targets</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Comprehensive Core Web Vitals Fixes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>On-Page Optimization (15 Pages)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>2 Monthly Research-Backed Articles</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Internal Link Graph Structuring</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Competitor Gap Tracking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Bi-Weekly Strategy Calls</li>
+          </ul>
+          <a class="btn btn-primary" href="#consult">Choose Growth SEO</a>
+        </div>
+
+        <!-- Performance -->
+        <div class="plan">
+          <div class="plan-tier">Performance Marketing</div>
+          <p class="plan-desc">Businesses combining aggressive SEO with full-funnel paid search &amp; media advertising.</p>
+          <div class="plan-price"><span class="amount">Custom</span><span class="unit custom">Pricing</span></div>
+          <ul class="plan-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full-Spectrum Organic &amp; Paid Campaign</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Google Search, Shopping &amp; Display Ads</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Conversion Rate Optimization (CRO)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>End-to-End GA4 &amp; Server-Side Tracking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Dedicated Lead Growth Strategist</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Multi-Location Schema Infrastructure</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom Looker Studio Data Portal</li>
+          </ul>
+          <a class="btn btn-soft" href="#consult">Discuss Your Requirements</a>
+        </div>
+      </div>
+
+      <p class="pricing-note" style="margin-top:24px">* Note: Google Ads and media ad spends are billed directly by advertising platforms and managed separately from agency retainer retainers.</p>
+
+      <div class="custom-plan">
+        <div>
+          <h4>Need a Plan That Fits Your Business?</h4>
+          <p>Tell us about your website, marketing goals, and budget. We'll help you explore the most suitable options and build a tailored sprint.</p>
+        </div>
+        <a class="btn btn-primary" href="#consult">Get a Custom Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. FAQ ============ -->
+  <section class="faqs" id="faqs">
+    <div class="faq-wrap">
+      <div class="faq-head">
+        <span class="eyebrow">Frequently Asked Questions</span>
+        <h2 class="section-title">Got Questions? We've Got Answers.</h2>
+        <p class="section-lede">Everything you need to know about our search methodologies, workflows, and commercial delivery.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">1. What is SEO, and why does my business need it?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">SEO is the practice of improving your website so it ranks higher in search results. It matters because most buyers start their search on Google, and visibility there brings in qualified visitors without paying for every click.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">2. How long does SEO take to show results?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">Most businesses see measurable movement within a few months. Technical fixes can show faster gains, while content and authority building compound over time.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">3. Can you guarantee the number-one position on Google?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">No one can guarantee a specific ranking, because search results depend on competitors and on Google's own changes. We commit to a measurable plan and report on progress transparently.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">4. What is the difference between SEO and Google Ads?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">SEO builds organic visibility over time and costs no per-click fee. Google Ads places paid results immediately and stops when the budget stops. Many businesses use both together.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">5. Which industries do you work with?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">We work across restaurants, healthcare, real estate, education, e-commerce, fitness, construction, and professional services. Each industry gets its own strategy.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">6. How much do your SEO services cost?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">Our Starter SEO plan starts at ₹29,999 per month and Growth SEO at ₹49,999 per month. Performance Marketing is priced after a discussion of your goals and budget.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">7. Do I need a website to start digital marketing?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">A website is the usual destination for search and ad traffic, so we recommend having one. If you don't yet, we can help you plan what it should include.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">8. Can you manage both SEO and paid advertising?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">Yes. Our Performance Marketing plan combines organic and paid search so that keyword data, landing pages and budgets work together.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">9. Do you offer local SEO?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">Yes. We optimize Google Business Profiles, build local citations, and target map-pack searches so nearby customers can find and call you.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">10. How can I get started?
+            <svg class="plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="6" y1="0" x2="6" y2="12"/><line x1="0" y1="6" x2="12" y2="6"/></svg></button>
+          <div class="faq-a">Use the consultation form at the bottom of this page or click Get a Consultation. We'll review your business and suggest the right next step.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. FINAL CTA + CONSULTATION FORM ============ -->
+  <section class="final-cta" id="consult">
+    <div class="final-inner">
+      <h2>Ready to Grow Your Business<br />Online?</h2>
+      <p class="lede">Let's identify opportunities to improve your website's visibility, reach the right audience, and build a digital marketing strategy around your goals.</p>
+
+      <div class="final-actions">
+        <a class="btn btn-primary" href="#consult">Get a Consultation</a>
+        <a class="btn btn-ghost-dark" href="#services">Explore Our Services</a>
+      </div>
+
+      <form class="consult-form" id="consultForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+        </div>
+        <div class="field full">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" required />
+        </div>
+        <button class="btn btn-primary" type="submit" id="submitBtn">Request My Consultation</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 9. FOOTER ============ -->
+<footer class="site-footer" id="contact">
+  <div class="footer-wrap">
+    <div class="footer-wrap-inner">
+      <div class="footer-top">
+        <div class="footer-col-brand">
+          <div class="footer-brand">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,11 7,5 11,8 19,1"/><polyline points="13,1 19,1 19,7"/></svg>
+            </span>
+            <span>INDEX PEAK</span>
+          </div>
+          <div class="footer-tag">Get Found. Get Chosen. Grow.</div>
+          <p class="footer-desc">Technical SEO and growth engineering consultancy helping forward-thinking enterprises convert search algorithms into compounding revenue engines.</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col-quick">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-services">
+          <h5>Our Services</h5>
+          <ul>
+            <li><a href="#services">Search Engine Optimization</a></li>
+            <li><a href="#services">Technical SEO</a></li>
+            <li><a href="#services">Local SEO</a></li>
+            <li><a href="#services">Content Marketing</a></li>
+            <li><a href="#services">Google Ads Management</a></li>
+            <li><a href="#services">Social Media Marketing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-contact">
+          <h5>Let's Talk</h5>
+          <p>Have a question about your website or marketing goals? We'd love to hear from you.</p>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg>
+            hello@indexpeak.com
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            +1 (555) 019-8422
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bengaluru / San Francisco
+          </div>
+          <a class="btn btn-primary" href="#consult">Contact Us <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Index Peak. All rights reserved.</span>
+        <nav aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <span aria-hidden="true">•</span>
+          <a href="#">Terms of Service</a>
+          <span aria-hidden="true">•</span>
+          <a href="#">Security</a>
+          <span aria-hidden="true">•</span>
+          <a href="#">System Status</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    // ----- Google Apps Script endpoint (deployed Web App URL) -----
+    var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyk92g1pvBOgYIoXJRE6_hpyu7QR4aO17-IYJxWs_mg2onww2AhPsfyW2Xvx8kJkcMF/exec";
+
+    // ----- Mobile nav toggle -----
+    var topnav = document.getElementById("topnav");
+    var menuToggle = document.getElementById("menuToggle");
+    menuToggle.addEventListener("click", function () {
+      var open = topnav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.querySelectorAll(".nav-links a, .nav-cta").forEach(function (link) {
+      link.addEventListener("click", function () {
+        topnav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // ----- FAQ accordion (vanilla JS toggle) -----
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var btn = item.querySelector(".faq-q");
+      btn.addEventListener("click", function () {
+        var isOpen = item.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    });
+
+    // ----- Consultation form -> Google Sheets -----
+    var form = document.getElementById("consultForm");
+    var submitBtn = document.getElementById("submitBtn");
+    var statusEl = document.getElementById("formStatus");
+
+    function setStatus(msg, cls) {
+      statusEl.textContent = msg;
+      statusEl.className = "form-status" + (cls ? " " + cls : "");
+    }
+
+    function showSuccess() {
+      setStatus("Thanks! We've received your details and will be in touch shortly.", "ok");
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request My Consultation";
+    }
+
+    function showError() {
+      setStatus("Something went wrong. Please try again in a moment.", "err");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request My Consultation";
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var name = document.getElementById("name").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var phone = document.getElementById("phone").value.trim();
+
+      if (!name || !email || !phone) {
+        setStatus("Please fill in your name, email and phone.", "err");
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setStatus("Please enter a valid email address.", "err");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      setStatus("");
+
+      var url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+
+      fetch(url, { method: "GET", mode: "no-cors" })
+        .then(function () { showSuccess(); })
+        .catch(function () { showError(); });
+    });
+  })();
+</script>
+</body>
+</html>
